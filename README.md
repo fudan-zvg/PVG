@@ -20,6 +20,7 @@ https://github.com/fudan-zvg/PVG/assets/83005605/2b946a6e-8218-40f3-b581-c563050
 
 https://github.com/fudan-zvg/PVG/assets/83005605/5c1f28c6-019d-495e-a4f2-ac0c923139a8
 
+https://github.com/fudan-zvg/PVG/assets/83005605/6fbfe305-f307-4a50-a42d-5e7a4c23a901
 
 ### 🎞️ Comparison with static methods
 
