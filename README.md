@@ -26,7 +26,7 @@ https://github.com/fudan-zvg/PVG/assets/83005605/6fbfe305-f307-4a50-a42d-5e7a4c2
 
 https://github.com/fudan-zvg/PVG/assets/83005605/74d62fb0-dadc-4c25-a053-d407ad2fd065
 
-https://github.com/fudan-zvg/PVG/assets/83005605/f00e1c86-7755-480f-a97f-484bdb26d5b2
+https://github.com/fudan-zvg/PVG/assets/83005605/c85aa6f4-3af6-468c-903a-0250fc30cad4
 
 ### 🎞️ Comparison with dynamic methods
 
