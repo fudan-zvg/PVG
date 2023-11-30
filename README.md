@@ -1,5 +1,5 @@
 # Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering
-### [[Project]](https://github.com/fudan-zvg/PVG)[ [Paper]](https://github.com/fudan-zvg/PVG) 
+### [[Project]](https://fudan-zvg.github.io/PVG)[ [Paper]](https://github.com/fudan-zvg/PVG) 
 
 **Official implementation of "Periodic Vibration Gaussian: 
 Dynamic Urban Scene Reconstruction and Real-time Rendering".** 
