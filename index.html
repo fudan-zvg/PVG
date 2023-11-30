@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Periodic Vibration Gaussian</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/dics.min.css">
+    <!-- <link rel="stylesheet" href="css/bulma.min.css"> -->
+    <script src="scripts/dics.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', domReady);
+        function domReady() {
+            for (const e of document.querySelectorAll(".b-dics")) {
+                new Dics({
+                    container: e,
+                    textPosition: "top"
+                });
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <section>
+        <div class="text-center mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering</h1>
+                        <hr>
+                        <h5> <a href="https://github.com/519401113" target="_blank">Yurui Chen<sup>1*</sup></a>,
+                            <a href="https://sulvxiangxin.github.io/" target="_blank">Chun Gu<sup>1*</sup></a>,
+                            <a href="https://github.com/selfspin" target="_blank">Junzhe Jiang<sup>1</sup></a>,
+                            <a href="https://xiatian-zhu.github.io/" target="_blank">Xiatian Zhu<sup>2</sup></a>,
+                            <a href="https://lzrobots.github.io/" target="_blank">Li Zhang<sup>1<i class="fa fa-envelope"> </i></sup></a> </h5>
+                        <h5 style="color:#000000;"><sup>1 </sup>Fudan University, <sup>2 </sup>University of Surrey </h5>
+                        <h5 style="color:#000000;"><sup>*</sup>Equally contributed.</h5>
+                        <br>
+                        <p>
+                            <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a>
+                            <a class="btn btn-secondary btn-lg" href="https://github.com/fudan-zvg/PVG" role="button">Code(Coming Soon)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+
+                    <h2>Abstract</h2>
+                    <hr style="margin-top:0px">
+
+                    <div class="container">
+                        <img class="img-fluid" src="img/teaser.png" alt="">
+                    </div>
+                    <br>
+
+                    <p class="text-justify">
+                        Modeling dynamic, large-scale urban scenes is challenging due to their highly intricate
+                        geometric structures and unconstrained dynamics in both space and time. Prior methods
+                        often employ high-level architectural priors, separating static and dynamic elements,
+                        resulting in suboptimal capture of their synergistic interactions. To address this
+                        challenge, we present a unified representation model, called <b>Periodic Vibration
+                        Gaussian</b> (<b>PVG</b>). PVG builds upon the efficient 3D Gaussian splatting technique,
+                        originally designed for static scene representation, by introducing periodic
+                        vibration-based temporal dynamics. This innovation enables PVG to elegantly and uniformly
+                        represent the characteristics of various objects and elements in dynamic urban scenes.
+                        To enhance temporally coherent representation learning with sparse training data,
+                        we introduce a novel flow-based temporal smoothing mechanism and a position-aware adaptive
+                        control strategy. Extensive experiments on Waymo Open Dataset
+                        and KITTI benchmarks demonstrate that PVG surpasses state-of-the-art
+                        alternatives in both reconstruction and novel view synthesis for both dynamic and static
+                        scenes. Notably, PVG achieves this without relying on manually labeled object bounding
+                        boxes or expensive optical flow estimation. Moreover, PVG exhibits <b>50/6000</b>-fold
+                        acceleration in training/rendering over the best alternative.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <div class="container">
+
+            <div class="row" style="margin-top:5px">
+                <div class="col-12 text-center">
+                    <h2>Method Overview</h2>
+                    <hr style="margin-top:0px">
+                </div>
+            </div>
+            <img class="img-fluid" src="img/pipeline.png" alt="">
+            <br>
+            <br>
+            <br>
+
+            <div class="col-12 d-flex justify-content-center">
+                <img class="img-fluid" src="img/flow.png" alt="" style="max-width: 50%; height: auto;">
+            </div>
+            <br>
+            <br>
+
+            <ul>
+                <li>Introduction of the very first unified representation model, Periodic Vibration Gaussian (PVG)
+                    , for large-scale dynamic urban scene reconstruction. In contrast to previous NeRF-based
+                    solutions, PVG employs the 3D Gaussian Splatting paradigm, uniquely extending it to elegantly
+                    represent dynamic scenes. This is accomplished by seamlessly integrating periodic
+                    vibration-based temporal dynamics into the conventional 3D Gaussian Splatting formulation.
+                </li>
+                <li>Development of a scene flow-based temporal smoothing mechanism to enhance the temporal
+                    continuity of representation and a position-aware point adaptive control strategy for
+                    unbounded urban scenes.
+                </li>
+                <li> Extensive experiments on two large benchmarks (KITTI and Waymo) demonstrate that PVG
+                    outperforms all previous state-of-the-art alternatives in novel view synthesis. Moreover,
+                    it provides significant efficiency benefits in both training and rendering processes,
+                    achieving a <b>50</b>-fold acceleration in training and a remarkable <b>6000</b>-fold
+                    acceleration in rendering compared to the leading competitor, SUDS.
+                </li>
+            </ul>
+
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Image Reconstruction on Waymo (Dynamic)</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="col-12 text-center">
+                <img class="img-fluid" src="img/waymo_dynamic.png" alt="">
+
+            </div>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Novel view synthesis on Waymo (Static)</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="col-12 text-center">
+                <img class="img-fluid" src="img/waymo_static.png" alt="">
+
+            </div>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Quantitative Results</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="col-12 text-center">
+                <img class="img-fluid" src="img/table.png" alt="">
+
+            </div>
+
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Rendered RGB, Depth and Semantic</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                      <source src="img/videos/0017085.mp4" type="video/mp4">
+                    </video>
+<!--                    <figcaption>Seg1023533...</figcaption>-->
+                </figure>
+            </div>
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="img/videos/0124100.mp4" type="video/mp4">
+                    </video>
+<!--                    <figcaption>Seg1285605...</figcaption>-->
+                </figure>
+            </div>
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                      <source src="img/videos/0147030.mp4" type="video/mp4">
+                    </video>
+<!--                    <figcaption>Seg1320791...</figcaption>-->
+                </figure>
+            </div>
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                      <source src="img/videos/0149060.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </div>
+
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Comparison with static methods</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                      <source src="img/videos/comparison_static_0017085.mp4" type="video/mp4">
+                    </video>
+                </figure>
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                      <source src="img/videos/comparison_static_0147030.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </div>
+    <br>
+    <br>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Comparison with dynamic methods</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="img/videos/comparison_dynamic_0017085.mp4" type="video/mp4">
+                    </video>
+                </figure>
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="img/videos/comparison_dynamic_0147030.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </div>
+
+        </div>
+    </section>
+    <br>
+    <br>
+
+
+    <footer class="text-center">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12">
+                    <h2>Citation</h2>
+                    <hr style="margin-top:0px">
+                    <div class="bibtexsection">
+                        <code style="color: black;">
+    @article{xxx,
+        title={Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering},
+        author={xxx},
+        journal={xxx},
+        year={2023}
+    }
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <br>
+    <br>
+
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <p>
+                Acknowledgements: The website template was borrowed from <a href="https://lioryariv.github.io/idr/">Lior Yariv</a>.
+                Image sliders are based on <a href="https://github.com/abelcabezaroman/definitive-image-comparison-slider">dics</a>.
+            </p>
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>
