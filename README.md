@@ -14,7 +14,7 @@ Dynamic Urban Scene Reconstruction and Real-time Rendering".**
 
 ### 🎞️ Rendered RGB, Depth and Semantic
 
-https://github.com/fudan-zvg/PVG/assets/83005605/9a4c65fe-9bd2-4e3e-a5e5-eafd06eff0ec
+https://github.com/fudan-zvg/PVG/assets/83005605/d953af4e-36ac-44e2-b430-23119e4ec4a7
 
 https://github.com/fudan-zvg/PVG/assets/83005605/2b946a6e-8218-40f3-b581-c5630500ccfc
 
