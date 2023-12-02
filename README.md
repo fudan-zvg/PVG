@@ -1,5 +1,5 @@
 # Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering
-### [[Project]](https://fudan-zvg.github.io/PVG)[ [Paper]](https://arxiv.org/abs/2311.18561) 
+### [[Project]](https://fudan-zvg.github.io/PVG) [[Paper]](https://arxiv.org/abs/2311.18561) 
 
 **Official implementation of "Periodic Vibration Gaussian: 
 Dynamic Urban Scene Reconstruction and Real-time Rendering".** 
@@ -11,29 +11,36 @@ Dynamic Urban Scene Reconstruction and Real-time Rendering".**
 </div><br/>
 
 ## 🎥 Videos
+### 🎞️ Demo
+[![Demo Video](https://i3.ytimg.com/vi/jJCCkdpDkRQ/maxresdefault.jpg)](https://www.youtube.com/embed/jJCCkdpDkRQ)
+
 
 ### 🎞️ Rendered RGB, Depth and Semantic
 
-https://github.com/fudan-zvg/PVG/assets/83005605/d953af4e-36ac-44e2-b430-23119e4ec4a7
+https://github.com/fudan-zvg/PVG/assets/83005605/60337a98-f92c-4465-ab45-2ee121413114
 
-https://github.com/fudan-zvg/PVG/assets/83005605/2b946a6e-8218-40f3-b581-c5630500ccfc
+https://github.com/fudan-zvg/PVG/assets/83005605/f45c0a91-26b6-46d9-895c-bf13786f94d2
 
-https://github.com/fudan-zvg/PVG/assets/83005605/5c1f28c6-019d-495e-a4f2-ac0c923139a8
+https://github.com/fudan-zvg/PVG/assets/83005605/0ed679d6-5e62-4923-b2cb-02c587ed468c
 
-https://github.com/fudan-zvg/PVG/assets/83005605/6fbfe305-f307-4a50-a42d-5e7a4c23a901
+https://github.com/fudan-zvg/PVG/assets/83005605/3ffda292-1b73-43d3-916a-b524f143f0c9
 
-### 🎞️ Comparison with static methods
+### 🎞️ Image Reconstruction on Waymo
+#### Comparison with static methods
 
-https://github.com/fudan-zvg/PVG/assets/83005605/74d62fb0-dadc-4c25-a053-d407ad2fd065
+https://github.com/fudan-zvg/PVG/assets/83005605/93e32945-7e9a-454a-8c31-5563125de95b
 
-https://github.com/fudan-zvg/PVG/assets/83005605/c85aa6f4-3af6-468c-903a-0250fc30cad4
+https://github.com/fudan-zvg/PVG/assets/83005605/f3c02e43-bb86-428d-b27b-73c4a7857bc7
 
-### 🎞️ Comparison with dynamic methods
+#### Comparison with dynamic methods
 
-https://github.com/fudan-zvg/PVG/assets/83005605/8d83dbe4-d2f3-47d4-a1f9-761e01f6af9f
+https://github.com/fudan-zvg/PVG/assets/83005605/73a82171-9e78-416f-a770-f6f4239d80ca
 
-https://github.com/fudan-zvg/PVG/assets/83005605/aa3743e3-9136-4516-b94a-99f405d46228
+https://github.com/fudan-zvg/PVG/assets/83005605/e579f8b8-d31e-456b-a943-b39d56073b94
 
+### 🎞️ Novel View Synthesis on Waymo
+
+https://github.com/fudan-zvg/PVG/assets/83005605/37393332-5d34-4bd0-8285-40bf938b849f
 
 ## 📜 BibTeX
 ```bibtex
