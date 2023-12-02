@@ -35,7 +35,7 @@ https://github.com/fudan-zvg/PVG/assets/83005605/8d83dbe4-d2f3-47d4-a1f9-761e01f
 https://github.com/fudan-zvg/PVG/assets/83005605/aa3743e3-9136-4516-b94a-99f405d46228
 
 
-## 📜 Reference
+## 📜 BibTeX
 ```bibtex
 @article{chen2023periodic,
   title={Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering},
