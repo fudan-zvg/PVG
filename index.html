@@ -78,10 +78,10 @@
                         originally designed for static scene representation, by introducing periodic
                         vibration-based temporal dynamics. This innovation enables PVG to elegantly and uniformly
                         represent the characteristics of various objects and elements in dynamic urban scenes.
-                        To enhance temporally coherent representation learning with sparse training data,
-                        we introduce a novel flow-based temporal smoothing mechanism and a position-aware adaptive
-                        control strategy. Extensive experiments on Waymo Open Dataset
-                        and KITTI benchmarks demonstrate that PVG surpasses state-of-the-art
+                        To enhance temporally coherent and large scene representation learning with sparse
+                        training data, we introduce a novel flow-based temporal smoothing mechanism and a
+                        position-aware adaptive control strategy respectively. Extensive experiments on Waymo
+                        Open Dataset and KITTI benchmarks demonstrate that PVG surpasses state-of-the-art
                         alternatives in both reconstruction and novel view synthesis for both dynamic and static
                         scenes. Notably, PVG achieves this without relying on manually labeled object bounding
                         boxes or expensive optical flow estimation. Moreover, PVG exhibits <b>50/6000</b>-fold
@@ -92,6 +92,30 @@
             </div>
         </div>
 
+    </section>
+    <br>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="row" style="margin-top:5px">
+                <div class="col-12 text-center">
+                    <h2><b>Video Demo</b></h2>
+                    <hr style="margin-top:0px">
+                </div>
+            </div>
+            <div class="row">
+        <div class="col-12 text-center">
+            <!-- 调整 width 和 height 来放大视频 -->
+            <iframe src="https://www.youtube.com/embed/jJCCkdpDkRQ"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    style="width:100%; height:auto; aspect-ratio: 16 / 9; margin:auto;">
+            </iframe>
+        </div>
+    </div>
+        </div>
     </section>
     <br>
     <br>
@@ -134,53 +158,6 @@
                     acceleration in rendering compared to the leading competitor, SUDS.
                 </li>
             </ul>
-
-        </div>
-    </section>
-    <br>
-    <br>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2>Image Reconstruction on Waymo (Dynamic)</h2>
-                </div>
-            </div>
-            <hr style="margin-top:0px">
-
-            <div class="col-12 text-center">
-                <img class="img-fluid" src="img/waymo_dynamic.png" alt="">
-
-            </div>
-            <br>
-            <br>
-
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2>Novel view synthesis on Waymo (Static)</h2>
-                </div>
-            </div>
-            <hr style="margin-top:0px">
-
-            <div class="col-12 text-center">
-                <img class="img-fluid" src="img/waymo_static.png" alt="">
-
-            </div>
-            <br>
-            <br>
-
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2>Quantitative Results</h2>
-                </div>
-            </div>
-            <hr style="margin-top:0px">
-
-            <div class="col-12 text-center">
-                <img class="img-fluid" src="img/table.png" alt="">
-
-            </div>
 
         </div>
     </section>
@@ -237,7 +214,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2>Comparison with static methods</h2>
+                    <h2>Image Reconstruction on Waymo</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3>Comparison with static methods</h3>
                 </div>
             </div>
             <hr style="margin-top:0px">
@@ -254,12 +236,10 @@
                     </video>
                 </figure>
             </div>
-    <br>
-    <br>
 
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2>Comparison with dynamic methods</h2>
+                    <h3>Comparison with dynamic methods</h3>
                 </div>
             </div>
             <hr style="margin-top:0px">
@@ -282,12 +262,33 @@
     <br>
     <br>
 
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Novel View Synthesis on Waymo</h2>
+                </div>
+            </div>
+            <hr style="margin-top:0px">
+
+            <div class="b-row">
+                <figure style="text-align: center;">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                      <source src="img/videos/novel.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
 
     <footer class="text-center">
         <div class="container">
             <div class="row ">
                 <div class="col-12">
-                    <h2>Citation</h2>
+                    <h2>BibTeX</h2>
                     <hr style="margin-top:0px">
                     <div class="bibtexsection">
                         <code style="color: black;">
