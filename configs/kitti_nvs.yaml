@@ -1,0 +1,33 @@
+exhaust_test: false
+
+
+# ModelParams
+scene_type: "KittiMot"
+start_frame: 380
+end_frame: 431
+num_pts: 1000000
+cam_num: 3
+resolution_scales: [1, 2, 4, 8]
+eval: true
+t_init: 0.006
+fix_radius: 10.0
+
+# PipelineParams
+
+# OptimizationParams
+iterations: 40000
+densify_until_iter: 20000
+densify_until_num_points: 10000000
+
+opacity_lr: 0.007
+
+densification_interval: 200
+sh_increase_interval: 2000
+opacity_reset_interval: 5000
+densify_grad_threshold: 0.00015
+size_threshold: 100
+big_point_threshold: 0.4
+
+lidar_decay: 0.3
+lambda_v_reg: 0.001
+lambda_t_reg: 0.01

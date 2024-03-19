@@ -2,7 +2,7 @@
 ### [[Project]](https://fudan-zvg.github.io/PVG) [[Paper]](https://arxiv.org/abs/2311.18561) 
 
 > [**Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering**](https://arxiv.org/abs/2311.18561),            
-> Yurui Chen, Chun Gu, Junzhe Jiang, [Xiatian Zhu](https://surrey-uplab.github.io/), [Li Zhang](https://lzrobots.github.io)  
+> Yurui Chen, [Chun Gu](https://sulvxiangxin.github.io/), Junzhe Jiang, [Xiatian Zhu](https://surrey-uplab.github.io/), [Li Zhang](https://lzrobots.github.io)  
 > **Arxiv preprint**
 
 **Official implementation of "Periodic Vibration Gaussian: 
@@ -13,6 +13,138 @@ Dynamic Urban Scene Reconstruction and Real-time Rendering".**
 <div align="center">
   <img src="assets/pipeline.png"/>
 </div><br/>
+
+## Get started
+### Environment
+```
+# Clone the repo.
+git clone https://github.com/fudan-zvg/PVG.git
+cd PVG
+
+# Make a conda environment.
+conda create --name pvg python=3.9
+conda activate pvg
+
+# Install requirements.
+pip install -r requirements.txt
+
+# Install simple-knn
+git clone https://gitlab.inria.fr/bkerbl/simple-knn.git
+pip install ./simple-knn
+
+# a modified gaussian splatting (for feature rendering)
+git clone --recursive https://github.com/SuLvXiangXin/diff-gaussian-rasterization
+pip install ./diff-gaussian-rasterization
+
+# Install nvdiffrast (for Envlight)
+git clone https://github.com/NVlabs/nvdiffrast
+pip install ./nvdiffrast
+
+```
+
+### Data preparation
+Create a directory for the data: `mkdir data`.
+#### Waymo dataset
+
+Preprocessed 4 waymo scenes for results in Table 1 of our paper can be downloaded [here](https://drive.google.com/file/d/1eTNJz7WeYrB3IctVlUmJIY0z8qhjR_qF/view?usp=sharing). Please unzip and put it into `data` directory.
+
+
+We extract scenes from [kitti-format Waymo dataset](https://github.com/caizhongang/waymo_kitti_converter). Use the example script `scripts/extract_scenes_waymo.py` to extract the scenes from the Waymo dataset which we employ to extract the scenes listed in StreetSurf. 
+
+Following [StreetSurf](https://github.com/PJLab-ADG/neuralsim), we use [Segformer](https://github.com/NVlabs/SegFormer) to extract the sky mask and put them as follows:
+```
+data
+└── waymo_scenes
+    └── sequence_id
+        ├── calib
+        │   └── frame_id.txt
+        ├── image_0{0, 1, 2, 3, 4}
+        │   └── frame_id.png
+        ├── sky_0{0, 1, 2, 3, 4}
+        │   └── frame_id.png
+        |── pose
+        |   └── frame_id.txt
+        └── velodyne
+            └── frame_id.bin
+```
+We provide an example script `scripts/extract_mask_waymo.py` to extract the sky mask from the extracted Waymo dataset, follow instructions [here](https://github.com/PJLab-ADG/neuralsim/blob/main/dataio/autonomous_driving/waymo/README.md#extract-mask-priors----for-sky-pedestrian-etc) to setup the Segformer environment. 
+
+#### KITTI dataset
+Preprocessed 3 kitti scenes for results in Table 1 of our paper can be downloaded [here](https://drive.google.com/file/d/1y6elRlFdRXW02oUOHdS9inVHK3U4xBXZ/view?usp=sharinghttps://drive.google.com/file/d/1y6elRlFdRXW02oUOHdS9inVHK3U4xBXZ/view?usp=sharing). Please unzip and put it into `data` directory.
+
+Put the [KITTI-MOT](https://www.cvlibs.net/datasets/kitti/eval_tracking.php) dataset in `data` directory.
+Following [StreetSurf](https://github.com/PJLab-ADG/neuralsim), we use [Segformer](https://github.com/NVlabs/SegFormer) to extract the sky mask and put them as follows:
+```
+data
+└── kitti_mot
+    └── training
+        ├── calib
+        │   └── sequence_id.txt
+        ├── image_0{2, 3}
+        │   └── sequence_id
+        │       └── frame_id.png
+        ├── sky_0{2, 3}
+        │   └── sequence_id
+        │       └── frame_id.png
+        |── oxts
+        |   └── sequence_id.txt
+        └── velodyne
+            └── sequence_id
+                └── frame_id.bin
+```
+We also provide an example script `scripts/extract_mask_kitti.py` to extract the sky mask from the KITTI dataset.
+
+
+### Training
+```
+# Waymo image reconstruction
+CUDA_VISIBLE_DEVICES=0 python train.py \
+--config configs/waymo_reconstruction.yaml \
+source_path=data/waymo_scenes/0145050 \
+model_path=eval_output/waymo_reconstruction/0145050
+
+# Waymo novel view synthesis
+CUDA_VISIBLE_DEVICES=0 python train.py \
+--config configs/waymo_nvs.yaml \
+source_path=data/waymo_scenes/0145050 \
+model_path=eval_output/waymo_nvs/0145050
+
+# KITTI image reconstruction
+CUDA_VISIBLE_DEVICES=0 python train.py \
+--config configs/kitti_reconstruction.yaml \
+source_path=data/kitti_mot/training/image_02/0001 \
+model_path=eval_output/kitti_reconstruction/0001 \
+start_frame=380 end_frame=431
+
+# KITTI novel view synthesis
+CUDA_VISIBLE_DEVICES=0 python train.py \
+--config configs/kitti_nvs.yaml \
+source_path=data/kitti_mot/training/image_02/0001 \
+model_path=eval_output/kitti_nvs/0001 \
+start_frame=380 end_frame=431
+```
+
+After training, evaluation results can be found in `{EXPERIMENT_DIR}/eval` directory.
+
+### Evaluating
+You can also use the following command to evaluate.
+```
+CUDA_VISIBLE_DEVICES=0 python evaluate.py \
+--config configs/kitti_reconstruction.yaml \
+source_path=data/kitti_mot/training/image_02/0001 \
+model_path=eval_output/kitti_reconstruction/0001 \
+start_frame=380 end_frame=431
+```
+
+### Automatically removing the dynamics
+You can the following command to automatically remove the dynamics, the render results will be saved in `{EXPERIMENT_DIR}/separation` directory.
+```
+CUDA_VISIBLE_DEVICES=1 python separate.py \
+--config configs/waymo_reconstruction.yaml \
+source_path=data/waymo_scenes/0158150 \
+model_path=eval_output/waymo_reconstruction/0158150
+```
+
 
 ## 🎥 Videos
 ### 🎞️ Demo

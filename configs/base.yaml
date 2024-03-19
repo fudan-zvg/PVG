@@ -1,0 +1,91 @@
+test_iterations: [7000, 30000]
+save_iterations: [7000, 30000]
+checkpoint_iterations: [7000, 30000]
+exhaust_test: false
+test_interval: 5000
+render_static: false
+vis_step: 500
+start_checkpoint: null
+seed: 0
+
+# ModelParams
+sh_degree: 3
+scene_type: "Waymo"
+source_path: ???
+start_frame: 65  # for kitti 
+end_frame: 120  # for kitti
+model_path: ???
+resolution_scales: [1]
+resolution: -1
+white_background: false
+data_device: "cuda"
+eval: false
+debug_cuda: false
+cam_num: 3  # for waymo
+t_init: 0.2
+cycle: 0.2
+velocity_decay: 1.0
+random_init_point: 200000
+fix_radius: 0.0
+time_duration: [-0.5, 0.5]
+num_pts: 100000
+frame_interval: 0.02
+testhold: 4  # NVS
+env_map_res: 1024
+separate_scaling_t: 0.1
+neg_fov: true
+
+# PipelineParams
+convert_SHs_python: false
+compute_cov3D_python: false
+debug: false
+depth_blend_mode: 0
+env_optimize_until: 1000000000
+env_optimize_from: 0
+
+
+# OptimizationParams
+iterations: 30000
+position_lr_init: 0.00016
+position_lr_final: 0.0000016
+position_lr_delay_mult: 0.01
+t_lr_init: 0.0008
+position_lr_max_steps: 30_000
+feature_lr: 0.0025
+opacity_lr: 0.05
+scaling_lr: 0.005
+scaling_t_lr: 0.002
+velocity_lr: 0.001
+rotation_lr: 0.001
+envmap_lr: 0.01
+
+time_split_frac: 0.5
+percent_dense: 0.01
+thresh_opa_prune: 0.005
+densification_interval: 100
+opacity_reset_interval: 3000
+densify_from_iter: 500
+densify_until_iter: 15_000
+densify_grad_threshold: 0.0002
+densify_grad_t_threshold: 0.002
+densify_until_num_points: 3000000
+sh_increase_interval: 1000
+scale_increase_interval: 5000
+prune_big_point: 1
+size_threshold: 20
+big_point_threshold: 0.1
+t_grad: true
+no_time_split: true
+contract: true
+
+lambda_dssim: 0.2
+lambda_opa: 0.0
+lambda_sky_opa: 0.05
+lambda_opacity_entropy: 0.05
+lambda_inv_depth: 0.001
+lambda_self_supervision: 0.5
+lambda_t_reg: 0.0
+lambda_v_reg: 0.0
+lambda_lidar: 0.1
+lidar_decay: 1.0
+lambda_v_smooth: 0.0

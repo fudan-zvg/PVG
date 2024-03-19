@@ -1,0 +1,12 @@
+__pycache__/
+*.so
+build/
+*.egg-info/
+.vscode
+
+
+build
+data
+output
+eval_output
+diff-gaussian-rasterization

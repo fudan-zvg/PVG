@@ -1,0 +1,28 @@
+exhaust_test: false
+
+
+# ModelParams
+scene_type: "Waymo"
+resolution_scales: [1, 2, 4, 8, 16]
+cam_num: 3
+eval: true
+num_pts: 600000
+t_init: 0.1
+separate_scaling_t: 0.2
+
+# PipelineParams
+
+
+# OptimizationParams
+iterations: 30000
+
+opacity_lr: 0.005
+
+densify_until_iter: 15000
+densify_grad_threshold: 0.00017
+sh_increase_interval: 2000
+
+
+lambda_v_reg: 0.01
+
+
