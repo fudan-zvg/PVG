@@ -46,7 +46,7 @@ pip install ./nvdiffrast
 Create a directory for the data: `mkdir data`.
 #### Waymo dataset
 
-Preprocessed 4 waymo scenes for results in Table 1 of our paper can be downloaded [here](https://drive.google.com/file/d/1eTNJz7WeYrB3IctVlUmJIY0z8qhjR_qF/view?usp=sharing). Please unzip and put it into `data` directory.
+Preprocessed 4 waymo scenes for results in Table 1 of our paper can be downloaded [here](https://drive.google.com/file/d/1eTNJz7WeYrB3IctVlUmJIY0z8qhjR_qF/view?usp=sharing) (optional: [corresponding label](https://drive.google.com/file/d/1rkOzYqD1wdwILq_tUNvXBcXMe5YwtI2k/view?usp=drive_link)). Please unzip and put it into `data` directory.
 
 
 We extract scenes from [kitti-format Waymo dataset](https://github.com/caizhongang/waymo_kitti_converter). Use the example script `scripts/extract_scenes_waymo.py` to extract the scenes from the Waymo dataset which we employ to extract the scenes listed in StreetSurf. 
