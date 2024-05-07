@@ -48,8 +48,22 @@ Create a directory for the data: `mkdir data`.
 
 Preprocessed 4 waymo scenes for results in Table 1 of our paper can be downloaded [here](https://drive.google.com/file/d/1eTNJz7WeYrB3IctVlUmJIY0z8qhjR_qF/view?usp=sharing) (optional: [corresponding label](https://drive.google.com/file/d/1rkOzYqD1wdwILq_tUNvXBcXMe5YwtI2k/view?usp=drive_link)). Please unzip and put it into `data` directory.
 
+First prepare the kitti-format Waymo dataset:
+```
+# Given the following dataset, we convert it to kitti-format
+# data
+# └── waymo
+#     └── waymo_format
+#         └── training
+#             └── segment-xxxxxx
 
-We extract scenes from [kitti-format Waymo dataset](https://github.com/caizhongang/waymo_kitti_converter). Use the example script `scripts/extract_scenes_waymo.py` to extract the scenes from the Waymo dataset which we employ to extract the scenes listed in StreetSurf. 
+# install some optional package
+pip install -r requirements-data.txt 
+
+# Convert the waymo dataset to kitti-format
+python scripts/waymo_converter.py waymo --root-path ./data/waymo/ --out-dir ./data/waymo/ --workers 128 --extra-tag waymo
+```
+Then use the example script `scripts/extract_scenes_waymo.py` to extract the scenes from the kitti-format Waymo dataset which we employ to extract the scenes listed in StreetSurf. 
 
 Following [StreetSurf](https://github.com/PJLab-ADG/neuralsim), we use [Segformer](https://github.com/NVlabs/SegFormer) to extract the sky mask and put them as follows:
 ```

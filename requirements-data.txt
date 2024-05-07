@@ -1,0 +1,3 @@
+waymo-open-dataset-tf-2-4-0
+mmcv-full
+
